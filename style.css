@@ -1,0 +1,450 @@
+/*
+Theme Name: Bootstrap Tutorial Theme
+Theme URI: https://hyvercode.com/bootstrap-tutorial-theme
+Author: Your Name
+Author URI: https://hyvercode.com
+Description: A modern WordPress theme built with Bootstrap 5 for a tutorial website.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bootstrap-tutorial-theme
+*/
+
+/* Dark mode styles */
+
+body {
+    font-size: medium !important;
+}
+
+.custom-logo {
+    border-radius: 100px;
+    max-height: 30px; /* Adjust the height as needed */
+    width: auto;
+    margin-right: 5px;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
+}
+
+.light-mode .sidebar{
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+
+.light-mode .dropdown-item {
+    background-color: white !important;
+}
+
+.light-mode .dropdown-item:hover {
+    background-color: #333 !important;
+    color: #ffffff !important;
+}
+
+.light-mode a {
+    color: #1a1a1a !important;
+}
+
+.light-mode .dropdown-menu {
+    background-color: white !important;
+    color: #1a1a1a !important;
+    border-color: #333 !important;
+}
+
+.light-mode .dropdown-menu a {
+    color: #1a1a1a !important;
+}
+
+.light-mode .dropdown-menu a:hover {
+    background-color: #333 !important;
+    color: #ffffff !important;
+}
+
+
+.light-mode .navbar {
+    background-color: #f5f5f5 !important;
+    color: #1a1a1a !important;
+}
+
+.light-mode .navbar .container {
+    background-color: #f5f5f5 !important;
+    color: #1a1a1a !important;
+}
+
+.light-mode .navbar a {
+    color: #1a1a1a !important;
+    /* Link tetap terang di dark mode */
+}
+
+.light-mode body,
+.light-mode header,
+.light-mode footer,
+.light-mode .content,
+.light-mode .main-section,
+.light-mode .container {
+    background-color: white !important;
+    color: #1a1a1a !important;
+}
+
+/* Add more dark mode dark styles as needed */
+.dark-mode {
+    background-color: #1a1a1a;
+    /* Dark background */
+    color: white;
+    /* Light text */
+}
+
+.dark-mode .sidebar{
+    background-color: #1a1a1a !important;
+    color: white;
+    border-radius: 1px #333;
+}
+
+.dark-mode .dropdown-menu {
+    background-color: #1a1a1a !important;
+    color: white !important;
+    border-color: #333 !important;
+}
+
+.dark-mode .dropdown-item {
+    color: white !important;
+}
+
+.dark-mode .dropdown-item:hover {
+    background-color: #333 !important;
+}
+
+.dark-mode a {
+    color: #ffffff;
+    /* Light links */
+}
+
+.dark-mode .dropdown-menu {
+    background-color: #1a1a1a !important;
+    color: white !important;
+    border-color: #333 !important;
+}
+
+.dark-mode .dropdown-menu a {
+    color: white !important;
+}
+
+.dark-mode .dropdown-menu a:hover {
+    background-color: #333 !important;
+}
+
+.dark-mode .navbar {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+.dark-mode .navbar a {
+    color: white !important;
+    /* Link tetap terang di dark mode */
+}
+
+.dark-mode .author-name{
+    color: #333 !important;
+}
+
+.dark-mode body,
+.dark-mode header,
+.dark-mode footer,
+.dark-mode .content,
+.dark-mode .main-section,
+.dark-mode .container {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+
+/* Add more dark mode styles as needed */
+.entry-title {
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.entry-title a{
+    text-decoration: none;
+}
+
+.entry-meta {
+    align-items: right !important;
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.entry-meta img{
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 5px !important;
+}
+
+.tags-links a{
+    font-size: 0.8rem;
+    color: #6c757d;
+    background-color: #007bff !important;
+}
+/* Add pagination styles */
+.entry-summary {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.entry-summary a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.entry-summary a:hover {
+    text-decoration: underline;
+}
+
+.entry-footer { 
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+    position: relative;
+    bottom: 0;
+    margin-bottom: -10px;
+}
+/* Add pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.page-numbers {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.page-numbers.current {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.page-numbers:hover {
+    background-color: #f8f9fa;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Add code block pre and code styles */
+pre, code {
+    font-family: "Fira Code", monospace;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 2px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* VS Code Theme for Dark Mode */
+.dark-mode pre, 
+.dark-mode code {
+    font-family: "Fira Code", "Courier New", monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4; /* Default text color */
+    padding: 2px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* Syntax Highlighting */
+.dark-mode .keyword { color: #569cd6; }   /* Keywords (function, return, let) */
+.dark-mode .string { color: #ce9178; }    /* Strings */
+.dark-mode .comment { color: #6a9955; }   /* Comments */
+.dark-mode .number { color: #b5cea8; }    /* Numbers */
+.dark-mode .function { color: #dcdcaa; }  /* Function names */
+.dark-mode .variable { color: #9cdcfe; }  /* Variables */
+.dark-mode .operator { color: #c586c0; }  /* Operators (+, -, *, /) */
+
+/* Category page styling */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.archive-description {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.entry-summary {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.entry-summary a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.entry-summary a:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.page-numbers {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.page-numbers.current {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.page-numbers:hover {
+    background-color: #f8f9fa;
+}
+
+/* Add more custom breadcrumbs styles as needed */
+.breadcrumbs {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.breadcrumbs a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Author avatar styling */
+.author-info {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.author-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.author-bio {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+
+/* Comment page styling */
+.comments-area {
+    margin-top: 2rem;
+}
+
+.comments-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.comment-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comment-list .media {
+    margin-bottom: 1.5rem;
+}
+
+.comment-list .media-body {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.comment-list .comment-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.comment-list .comment-reply {
+    margin-top: 0.5rem;
+}
+
+.comment-list .comment-reply a {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.comment-list .comment-reply a:hover {
+    text-decoration: underline;
+}
+
+.comment-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"] {
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 770px) {
+    .mobile-hidden {
+        display: none;
+    }
+}
