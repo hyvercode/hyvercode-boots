@@ -271,3 +271,9 @@ function bootstrap_tutorial_theme_widgets_init()
     ));
 }
 add_action('widgets_init', 'bootstrap_tutorial_theme_widgets_init');
+
+/* POST */
+function bootstrap_tutorial_setup() {
+    add_theme_support('post-thumbnails', array('post', 'page', 'custom_post_type'));
+}
+add_action('after_setup_theme', 'bootstrap_tutorial_setup');
