@@ -22,7 +22,7 @@ get_header(); // Include the header
                     <article id="post-<?php the_ID(); ?>" <?php post_class('mb-3'); ?>>
                         <header class="entry-header">
                             <?php
-                            the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+                            the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h3>');
                             ?>
                             <div class="entry-meta mobile-hidden">
                                 <?php
