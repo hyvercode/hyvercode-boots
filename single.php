@@ -8,7 +8,7 @@ get_header(); // Include the header
 
 <main class="container py-5">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-9">
             <?php
             if (have_posts()) :
                 while (have_posts()) : the_post();
@@ -82,20 +82,22 @@ get_header(); // Include the header
             endif;
             ?>
         </div>
-        <!-- <div class="col-md-1 mobile-hidden">
-            <div class="card" style="width: 12rem;">
+        <div class="col-3 text-right mt-4">
+            <div class="shadow-sm border-0 text-center p-2">
                 <?php
                 if (has_post_thumbnail()) {
-                    the_post_thumbnail('medium', ['class' => 'img-thumbnail']);
+                    the_post_thumbnail('medium=', ['class' => 'mb-3']);
                 }
                 ?>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="entry-meta">
+                    <?php
+                    echo get_avatar(get_the_author_meta('ID'), 64, '', '', array('class' => 'rounded-circle'));
+                    bootstrap_tutorial_theme_posted_on();
+                    bootstrap_tutorial_theme_posted_by();
+                    ?>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </main>
 

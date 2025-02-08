@@ -160,6 +160,11 @@ body {
     color: #333 !important;
 }
 
+.dark-mode .navbar-toggler-icon{
+    background-color: #353434 !important;
+    color: #1a1a1a !important;
+    border-radius: 5px;
+}
 
 .dark-mode body,
 .dark-mode header,
@@ -168,7 +173,6 @@ body {
 .dark-mode .main-section,
 .dark-mode .container {
     background-color: #1a1a1a !important;
-    color: white !important;
 }
 
 
@@ -506,7 +510,7 @@ pre, code {
     font-weight: bold;
     margin-bottom: 0;
     padding: 0.75rem 1.25rem;
-    background-color:black !important;
+    background-color: #1c1c1c;
     color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
