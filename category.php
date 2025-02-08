@@ -4,10 +4,10 @@ get_header(); // Include the header
 ?>
 <main class="container py-5">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mobile-hidden">
             <?php get_sidebar(); ?>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-12">
             <div class="breadcrumbs mb-4">
                 <?php
                 if (function_exists('bcn_display')) {
