@@ -45,3 +45,8 @@
             </div>
         </nav>
     </header>
+    <div class="container">
+        <div class="row">
+            <?php  get_template_part('sidebar-top', 'none');?>
+        </div>
+    </div>
