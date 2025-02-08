@@ -4,6 +4,8 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5364007793983397"
+     crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 </head>
 

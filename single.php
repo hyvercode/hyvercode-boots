@@ -8,7 +8,7 @@ get_header(); // Include the header
 
 <main class="container py-5">
     <div class="row">
-        <div class="col-9">
+        <div class="col-md-9 col-xs-12">
             <?php
             if (have_posts()) :
                 while (have_posts()) : the_post();
@@ -82,7 +82,7 @@ get_header(); // Include the header
             endif;
             ?>
         </div>
-        <div class="col-3 text-right mt-4">
+        <div class="col-3 text-right mt-4 mobile-hidden">
             <div class="shadow-sm border-0 text-center p-2">
                 <?php
                 if (has_post_thumbnail()) {
