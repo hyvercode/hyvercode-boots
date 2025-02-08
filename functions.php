@@ -49,8 +49,8 @@ function bootstrap_tutorial_theme_posted_on()
         $time_string,
         esc_attr(get_the_date(DATE_W3C)),
         esc_html(get_the_date()),
-        esc_attr(get_the_modified_date(DATE_W3C)),
-        esc_html(get_the_modified_date())
+        esc_attr(""),
+        esc_html("")
     );
 
     echo '<span class="posted-on">' . $time_string . '</span>';
