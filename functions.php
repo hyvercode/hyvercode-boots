@@ -96,7 +96,7 @@ add_action('pre_get_posts', 'bootstrap_tutorial_theme_posts_per_page');
 // Change this number to your desired excerpt length
 function bootstrap_tutorial_theme_custom_excerpt_length($length)
 {
-    return 10;
+    return 20;
 }
 add_filter('excerpt_length', 'bootstrap_tutorial_theme_custom_excerpt_length');
 
