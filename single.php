@@ -8,7 +8,7 @@ get_header(); // Include the header
 
 <main class="container py-5">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-10">
             <?php
             if (have_posts()) :
                 while (have_posts()) : the_post();
@@ -37,9 +37,22 @@ get_header(); // Include the header
                             ?>
                         </div>
 
-                        <footer class="entry-footer">
-                            <?php bootstrap_tutorial_theme_tag_post(); ?>
+                        <footer class="entry-footer clear-both">
+                            <div class="mb-4">
+                                <?php bootstrap_tutorial_theme_tag_post(); ?>
+                            </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-between">
+                                    <li class="page-item post-page">
+                                        <?php previous_post_link('%link'); ?>
+                                    </li>
+                                    <li class="page-item post-page">
+                                        <?php next_post_link('%link'); ?>
+                                    </li>
+                                </ul>
+                            </nav>
                         </footer>
+
                     </article>
 
                     <!-- Author Information -->
@@ -69,9 +82,20 @@ get_header(); // Include the header
             endif;
             ?>
         </div>
-        <div class="col-md-3 mobile-hidden">
-            <?php get_sidebar(); ?>
-        </div>
+        <!-- <div class="col-md-1 mobile-hidden">
+            <div class="card" style="width: 12rem;">
+                <?php
+                if (has_post_thumbnail()) {
+                    the_post_thumbnail('medium', ['class' => 'img-thumbnail']);
+                }
+                ?>
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div> -->
     </div>
 </main>
 

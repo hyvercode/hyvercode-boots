@@ -4,7 +4,10 @@ get_header(); // Include the header
 ?>
 <main class="container py-5">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-4">
+            <?php get_sidebar(); ?>
+        </div>
+        <div class="col-md-8">
             <div class="breadcrumbs mb-4">
                 <?php
                 if (function_exists('bcn_display')) {
@@ -61,9 +64,6 @@ get_header(); // Include the header
                 get_template_part('template-parts/content', 'none');
             endif;
             ?>
-        </div>
-        <div class="col-md-3">
-            <?php get_sidebar(); ?>
         </div>
     </div>
 </main>

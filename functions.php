@@ -19,12 +19,11 @@ function bootstrap_tutorial_theme_enqueue_scripts()
     // Enqueue dark mode script
     wp_enqueue_script('dark-mode-script', get_template_directory_uri() . '/js/dark-mode.js', array(), null, true);
 
-     // Enqueue Prism.js CSS
-     wp_enqueue_style('prism-css', get_template_directory_uri() . '/css/prism.css');
+    // Enqueue Prism.js CSS
+    wp_enqueue_style('prism-css', get_template_directory_uri() . '/css/prism.css');
 
-     // Enqueue Prism.js JS
-     wp_enqueue_script('prism-js', get_template_directory_uri() . '/js/prism.js', array(), null, true);
-
+    // Enqueue Prism.js JS
+    wp_enqueue_script('prism-js', get_template_directory_uri() . '/js/prism.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'bootstrap_tutorial_theme_enqueue_scripts');
 
@@ -36,7 +35,8 @@ function bootstrap_tutorial_theme_register_menus()
 }
 add_action('init', 'bootstrap_tutorial_theme_register_menus');
 
-function bootstrap_tutorial_theme_posted_on() {
+function bootstrap_tutorial_theme_posted_on()
+{
     $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
     if (get_the_time('U') !== get_the_modified_time('U')) {
         $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -54,11 +54,13 @@ function bootstrap_tutorial_theme_posted_on() {
 }
 
 
-function bootstrap_tutorial_theme_posted_by() {
+function bootstrap_tutorial_theme_posted_by()
+{
     echo '<span class="byline"> by ' . esc_html(get_the_author()) . '</span>';
 }
 
-function bootstrap_tutorial_theme_tag_post() {
+function bootstrap_tutorial_theme_tag_post()
+{
     if ('post' === get_post_type()) {
         $tags_list = get_the_tag_list('', esc_html__(', ', 'bootstrap-tutorial-theme'));
         if ($tags_list) {
@@ -68,7 +70,8 @@ function bootstrap_tutorial_theme_tag_post() {
 }
 
 
-function bootstrap_tutorial_theme_category_post() {
+function bootstrap_tutorial_theme_category_post()
+{
     if ('post' === get_post_type()) {
         $categories_list = get_the_category_list(esc_html__(', ', 'bootstrap-tutorial-theme'));
         if ($categories_list) {
@@ -77,34 +80,24 @@ function bootstrap_tutorial_theme_category_post() {
     }
 }
 
-function bootstrap_tutorial_theme_widgets_init() {
-    register_sidebar(array(
-        'name'          => __('Sidebar', 'bootstrap-tutorial-theme'),
-        'id'            => 'sidebar-1',
-        'description'   => __('Add widgets here to appear in your sidebar.', 'bootstrap-tutorial-theme'),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ));
-}
-add_action('widgets_init', 'bootstrap_tutorial_theme_widgets_init');
-
-function bootstrap_tutorial_theme_posts_per_page($query) {
+function bootstrap_tutorial_theme_posts_per_page($query)
+{
     if (!is_admin() && $query->is_main_query()) {
         $query->set('posts_per_page', 10); // Limit to 10 posts per page
     }
 }
 add_action('pre_get_posts', 'bootstrap_tutorial_theme_posts_per_page');
 
-function bootstrap_tutorial_theme_custom_excerpt_length($length) {
+function bootstrap_tutorial_theme_custom_excerpt_length($length)
+{
     return 20; // Change this number to your desired excerpt length
 }
 add_filter('excerpt_length', 'bootstrap_tutorial_theme_custom_excerpt_length');
 
 
 //Prism.js
-function bootstrap_tutorial_theme_code_shortcode($atts, $content = null) {
+function bootstrap_tutorial_theme_code_shortcode($atts, $content = null)
+{
     $atts = shortcode_atts(array(
         'language' => 'plaintext', // Default language
     ), $atts, 'code');
@@ -113,9 +106,10 @@ function bootstrap_tutorial_theme_code_shortcode($atts, $content = null) {
 }
 add_shortcode('code', 'bootstrap_tutorial_theme_code_shortcode');
 
-function bootstrap_tutorial_theme_comment($comment, $args, $depth) {
+function bootstrap_tutorial_theme_comment($comment, $args, $depth)
+{
     $GLOBALS['comment'] = $comment;
-    ?>
+?>
     <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media mb-4'); ?>>
         <div class="media-body">
             <div class="d-flex align-items-center mb-2">
@@ -150,5 +144,57 @@ function bootstrap_tutorial_theme_comment($comment, $args, $depth) {
             </div>
         </div>
     </li>
-    <?php
+<?php
 }
+
+/* sidebar */
+
+function bootstrap_tutorial_theme_widgets_init()
+{
+
+    // Sidebar
+    register_sidebar(array(
+        'name'          => esc_html__('Sidebar', 'bootstrap-tutorial-theme'),
+        'id'            => 'sidebar-1',
+        'description'   => esc_html__('Add widgets here.', 'bootstrap-tutorial-theme'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s card mb-2 p-3 mb-2 rounded border-0">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title card-header">',
+        'after_title'   => '</h2>',
+    ));
+    // Sidebar End
+
+    // Left Sidebar
+    register_sidebar(array(
+        'name'          => __('Left Sidebar', 'bootstrap-tutorial-theme'),
+        'id'            => 'sidebar-left',
+        'description'   => __('Add widgets here to appear in your left sidebar.', 'bootstrap-tutorial-theme'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s card mb-4">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title card-header">',
+        'after_title'   => '</h3>',
+    ));
+
+    // Right Sidebar
+    register_sidebar(array(
+        'name'          => __('Right Sidebar', 'bootstrap-tutorial-theme'),
+        'id'            => 'sidebar-right',
+        'description'   => __('Add widgets here to appear in your right sidebar.', 'bootstrap-tutorial-theme'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s card mb-4">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title card-header">',
+        'after_title'   => '</h2>',
+    ));
+
+    // Footer Sidebar
+    register_sidebar(array(
+        'name'          => __('Footer Sidebar', 'bootstrap-tutorial-theme'),
+        'id'            => 'sidebar-2',
+        'description'   => __('Add widgets here to appear in your footer.', 'bootstrap-tutorial-theme'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s col-md-4 mb-4">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+}
+add_action('widgets_init', 'bootstrap_tutorial_theme_widgets_init');

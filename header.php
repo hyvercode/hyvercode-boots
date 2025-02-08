@@ -35,7 +35,7 @@
                         <ul class="dropdown-menu" aria-labelledby="darkModeDropdown">
                             <li><a class="dropdown-item" href="#" data-theme="light">Light</a></li>
                             <li><a class="dropdown-item" href="#" data-theme="dark">Dark</a></li>
-                            <li><a class="dropdown-item" href="#" data-theme="auto">Auto (by System)</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="auto">System</a></li>
                         </ul>
                     </div>
 

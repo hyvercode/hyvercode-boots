@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file.
  *
@@ -10,11 +11,14 @@ get_header(); // Include the header
 ?>
 <main class="container py-5">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-4 mobile-hidden">
+            <?php get_sidebar(); ?>
+        </div>
+        <div class="col-md-8">
             <?php
             if (have_posts()) :
                 while (have_posts()) : the_post();
-                    ?>
+            ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class('mb-3'); ?>>
                         <header class="entry-header">
                             <?php
@@ -48,7 +52,7 @@ get_header(); // Include the header
                         </div>
                     </article>
                     <hr class="bg-info border-1 border-top border-info" />
-                    <?php
+            <?php
                 endwhile;
 
                 // Pagination
@@ -62,9 +66,6 @@ get_header(); // Include the header
                 get_template_part('template-parts/content', 'none');
             endif;
             ?>
-        </div>
-        <div class="col-md-3 mobile-hidden">
-            <?php get_sidebar(); ?>
         </div>
     </div>
 </main>
