@@ -21,7 +21,9 @@
         </div>
     </div>
     <div class="container">
-        <p class="mb-0 text-center">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+        <p class="mb-0 text-center">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>
+            <i><a href="https://github.com/hyvercode/hyvercode-boots">Download theme</a></i>
+        </p>
     </div>
 </footer>
 <?php wp_footer(); ?>
