@@ -1,4 +1,4 @@
-<footer class="bg-dark text-white py-4">
+<footer class="bg-dark text-white py-4 text-body-secondary border-top mt-5">
     <div class="container">
         <div class="row">
             <?php if (is_active_sidebar('sidebar-footer-1')) : ?>
