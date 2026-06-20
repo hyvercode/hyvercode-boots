@@ -14,10 +14,55 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg bg-body-tertiary ">
             <div class="container">
-                <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="<?php bloginfo('name'); ?>" class="custom-logo">
-                    <?php bloginfo('name'); ?>
-                </a>
+                                <?php
+                // 1. Ambil URL Dynamic Logo dari Customizer
+                $custom_logo_id    = get_theme_mod( 'custom_logo' );
+                $dynamic_logo_url  = $custom_logo_id ? wp_get_attachment_image_url( $custom_logo_id, 'full' ) : '';
+                $fallback_logo_url = esc_url( get_stylesheet_directory_uri() ) . '/img/logo/brand.png';
+
+                // Jika ada logo di customizer pakai itu, jika tidak pakai fallback
+                $final_logo_url = ! empty( $dynamic_logo_url ) ? esc_url( $dynamic_logo_url ) : $fallback_logo_url;
+
+                // 2. Ambil Informasi Situs
+                $site_name        = get_bloginfo( 'name' );
+                $site_description = get_bloginfo( 'description', 'display' );
+                ?>
+
+                <div class="navbar-brand-wrapper d-flex align-items-center">
+                    <!-- LINK LOGO (Responsive Utilities) -->
+                    <a class="navbar-brand me-3" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <!-- Logo Versi Mobile (xs sampai sm) -->
+                        <img src="<?php echo esc_url( $final_logo_url ); ?>"
+                            alt="<?php echo esc_attr( $site_name ); ?>"
+                            class="d-md-none"
+                            style="max-width: 40px; height: auto;"> <!-- Ukuran mobile biasanya lebih kecil -->
+
+                        <!-- Logo Versi Desktop (md ke atas) -->
+                        <img src="<?php echo esc_url( $final_logo_url ); ?>"
+                            alt="<?php echo esc_attr( $site_name ); ?>"
+                            class="d-none d-md-block"
+                            style="max-width: 40px; height: auto;"> <!-- Ukuran desktop sesuai kebutuhan -->
+                    </a>
+
+                    <!-- TEXT BRANDING (Judul & Tagline) -->
+                    <div class="site-branding d-flex flex-column justify-content-center">
+                        <!-- Judul Situs -->
+                        <h3 class="site-title mb-0">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="text-decoration-none text-dark fw-bold">
+                                <?php echo esc_html( $site_name ); ?>
+                            </a>
+                        </h3>
+
+                        <!-- Tagline (Hanya muncul jika diisi di Settings > General) -->
+                        <?php if ( $site_description || is_customize_preview() ) : ?>
+                            <small class="site-description text-muted d-none d-sm-block">
+                                <?php echo esc_html( $site_description ); ?>
+                            </small>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
